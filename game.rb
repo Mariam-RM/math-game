@@ -25,24 +25,13 @@ class Game
 
       current_total = generate_question
       current_player = @turn_manager.current_player
-      # current_name = @turn_manager.current_player.name
       other_player = @turn_manager.next_player
-      # current_lives = @turn_manager.current_player.lives
-      # other_player
 
-      # print current_lives
-       print " #{current_player.name}: Whats #{@number1} + #{@number2} equal ?"
+      print " #{current_player.name}: Whats #{@number1} + #{@number2} equal ?"
 
       input = gets.chomp.to_i
 
       correct = check_answer(current_total, input)
-
-      # if correct
-
-
-      # if correct ? (print "#{current_player}: Yes! you are correct."): (print "#{current_player}: Seriously? No!")
-
-      # print correct
 
       if correct
         puts " #{current_player.name}: Yes! you are correct."
@@ -54,9 +43,6 @@ class Game
       puts " #{current_player.status} vs  #{other_player.status}"
 
       @turn_manager.next_turn
-
-
-      # current player + question
 
     end
 
@@ -78,8 +64,7 @@ class Game
     @number2 = rand(10)
     total = @number1 + @number2
 
-    # message = "number1 + number2"
-  end
+   end
 
   def check_answer (total, input)
 
