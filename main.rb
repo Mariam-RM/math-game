@@ -7,5 +7,5 @@ puts "Start Game"
 
 game.play
 
-puts "End Game"
+puts "Good Bye!"
 

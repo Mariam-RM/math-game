@@ -19,28 +19,57 @@ class Game
 
   def play
 
-    # while (not game_over) do
+    while (not game_over)
+
+      puts "-----------------New Turn--------------"
 
       current_total = generate_question
+      current_player = @turn_manager.current_player
+      # current_name = @turn_manager.current_player.name
+      other_player = @turn_manager.next_player
+      # current_lives = @turn_manager.current_player.lives
+      # other_player
 
-      print "Whats #{@number1} + #{@number2} ?"
+      # print current_lives
+       print " #{current_player.name}: Whats #{@number1} + #{@number2} equal ?"
 
       input = gets.chomp.to_i
 
+      correct = check_answer(current_total, input)
+
+      # if correct
+
+
+      # if correct ? (print "#{current_player}: Yes! you are correct."): (print "#{current_player}: Seriously? No!")
+
+      # print correct
+
+      if correct
+        puts " #{current_player.name}: Yes! you are correct."
+      else
+        current_player.lose_life
+        puts " #{current_player.name}: Seriously? No!"
+      end
+
+      puts " #{current_player.status} vs  #{other_player.status}"
+
+      @turn_manager.next_turn
 
 
       # current player + question
 
-    # end
+    end
+
+    puts "-------- Game Over --------"
 
   end
 
 
   def game_over
-    players_notdone.count == 1
+    players_last.count == 1
   end
 
-  def players_notdone
+  def players_last
     @players.select { |p| not p.done }
   end
 
